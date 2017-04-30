@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux
+set -ex
 
 cd /srv/build
 
@@ -18,7 +18,7 @@ else
   ninja-build check
 fi
 
-if [[ $buld_flags == *coverage* || $CXXFLAGS == *--coverage* || $CFLAGS == *--coverage* ]]; then
+if [[ $build_flags == *coverage* || $CXXFLAGS == *--coverage* || $CFLAGS == *--coverage* ]]; then
   /srv/src/ci/gen-coverage.py
 fi
 
