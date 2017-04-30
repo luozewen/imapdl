@@ -6,7 +6,7 @@ import os
 import subprocess
 import shutil
 
-ex_path = [ '/usr/include/*', 'unittest/*', 'lib*/*', 'example/*' ]
+ex_path = [ '/usr/include/*', 'unittest/*', 'lib*/*', '*@exe/*', 'example/*' ]
 
 brflag = ['--rc', 'lcov_branch_coverage=1']
 

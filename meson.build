@@ -139,6 +139,9 @@ ut = executable('ut',
 # default timeout 30s
 test('unittest', ut, timeout: 100)
 
+# thus, workaround
+run_target('check', command: [ ut ] )
+
 # default workdir: meson.build_root()
 #pwd = find_program('pwd')
 #test('unittest', pwd)
