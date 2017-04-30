@@ -1,6 +1,13 @@
 dist: trusty
 sudo: required
 
+# we disable the new recursive submodule initialization
+# (https://github.com/travis-ci/travis-ci/issues/4099)
+# because we don't need the recursive submodules and some would fail
+# due to ssh urls
+git:
+  submodules: false
+
 # default is ruby, we set python in case we need to do some
 # advanced scripting in our setup of the C++ tests
 language: python
@@ -13,6 +20,7 @@ matrix:
       python: 3.5
 
 before_install:
+  - git submodule update --init # cf. above `git:` section
   - ./ci/travis/"$TRAVIS_OS_NAME$tag"/before_install.sh
 
 install:
