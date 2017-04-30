@@ -16,7 +16,7 @@ matrix:
   include:
     - os: linux
       services: docker
-      env: docker_img=gsauthof/fedora-cxx-devel:25 CMAKE_BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address -fsanitize=undefined" targets="ut imapdl
+      env: docker_img=gsauthof/fedora-cxx-devel:25 CMAKE_BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address -fsanitize=undefined" targets="ut imapdl"
       python: 3.5
 
 before_install:
