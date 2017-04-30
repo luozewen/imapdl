@@ -16,7 +16,9 @@ matrix:
   include:
     - os: linux
       services: docker
-      env: docker_img=gsauthof/fedora-cxx-devel:25 CMAKE_BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address -fsanitize=undefined" targets="ut imapdl" UT_PREFIX=/srv/src/unittest
+      # omit -fsanitize=undefined for now as its message inject
+      # a memory leak ...
+      env: docker_img=gsauthof/fedora-cxx-devel:25 CMAKE_BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address" targets="ut imapdl" UT_PREFIX=/srv/src/unittest
       python: 3.5
 
 before_install:
