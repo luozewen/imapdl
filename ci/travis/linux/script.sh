@@ -7,4 +7,5 @@ docker exec devel env \
   CXXFLAGS="$CXXFLAGS" \
   LDFLAGS="$LDFLAGS" \
   CMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" \
+  UT_PREFIX="$UT_PREFIX" \
   /srv/src/ci/docker/run.sh
