@@ -14,6 +14,6 @@ stat -f -c %T .
 ninja-build check
 
 if [[ $CXXFLAGS == *--coverage* || $CFLAGS == *--coverage* ]]; then
-  ./ci/gen-coverage.py
+  /srv/src/ci/gen-coverage.py
 fi
 
