@@ -11,9 +11,14 @@ mkdir -p tmp
 export TMPDIR=$PWD/tmp
 
 stat -f -c %T .
-ninja-build check
 
-if [[ $CXXFLAGS == *--coverage* || $CFLAGS == *--coverage* ]]; then
+if [ -x ut ] ; then
+  ./ut
+else
+  ninja-build check
+fi
+
+if [[ $buld_flags == *coverage* || $CXXFLAGS == *--coverage* || $CFLAGS == *--coverage* ]]; then
   /srv/src/ci/gen-coverage.py
 fi
 
